@@ -73,38 +73,23 @@ function logAnalyzer(strline) {
     for (let i = 0; i < messages.length; i++) {
         element = messages[i];
         var data_msg = ""
+        const log_data = element.split(/,/)
+        var level = log_data[0]
+        var date = log_data[1]
+        var source = log_data[2]
+        var eventid = log_data[3]
+        var task = log_data[4]
+        var msg = log_data[5]
         if (element.indexOf("\"") != -1) {
-
             do {
-                data_msg += messages[i + 1] + "\n"
+                data_msg += messages[i + 1] + '\n'
                 i++;
             } while (messages[i].indexOf("\"") == -1)
-            const log_data = element.split(/,/)
-    
-            var level = log_data[0]
-            var date = log_data[1]
-            var source = log_data[2]
-            var eventid = log_data[3]
-            var task = log_data[4]
-            var msg= log_data[5] + "\"" +data_msg
+            msg = log_data[5] + "\"" + data_msg
             // 出力
-            output_line.push(line_counter + "," + level + "," + date + "," + source + "," + eventid + "," + task + "," + msg)
-            console.log(line_counter + "," + level + "," + date + "," + source + "," + eventid + "," + task + "," + msg)
-            line_counter++;
-
-        }else{
-            const log_data = element.split(/,/)    
-            var level = log_data[0]
-            var date = log_data[1]
-            var source = log_data[2]
-            var eventid = log_data[3]
-            var task = log_data[4]
-            var msg= log_data[5]
-            // 出力
-            output_line.push(line_counter + "," + level + "," + date + "," + source + "," + eventid + "," + task + "," + msg)
-            console.log(line_counter + "," + level + "," + date + "," + source + "," + eventid + "," + task + "," + msg)
-            line_counter++;
         }
+        output_line.push(line_counter + "," + level + "," + date + "," + source + "," + eventid + "," + task + "," + msg)
+        line_counter++;
     }
     /*
         for (const str1 of messages) {
