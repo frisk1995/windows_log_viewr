@@ -33,7 +33,7 @@ function createArray(output_text) {
     return result;
 }
 
-// テーブル可
+// データテーブル作成
 function createTable(result) {
     const resultTable = document.getElementById("resultTable");
     result.forEach((line) => {
@@ -62,4 +62,31 @@ function createTable(result) {
 const clearTable = () => {
     const resultTable = document.getElementById("resultTable");
     resultTable.remove()
+}
+
+//数値ソート（昇順）
+function compareNumber(a, b) {
+    return a.value - b.value;
+}
+//数値ソート（降順）
+function compareNumberDesc(a, b) {
+    return b.value - a.value;
+}
+//文字列ソート（昇順）
+function compareString(a, b) {
+    if (a.value < b.value) {
+        return -1;
+    } else {
+        return 1;
+    }
+    return 0;
+}
+//文字列ソート（降順）
+function compareStringDesc(a, b) {
+    if (a.value > b.value) {
+        return -1;
+    } else {
+        return 1;
+    }
+    return 0;
 }

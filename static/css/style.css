@@ -48,7 +48,9 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    word-wrap: break-word;
+/*    display: block; */
+    height: 600px;
+    overflow-y: scroll;
 }
 
 .content-table thead tr {
@@ -56,12 +58,17 @@
     color: #ffffff;
     text-align: left;
     font-weight: bold;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    border-radius: 5px 5px 0 0;
 }
 
 .content-table th,
 .content-table td {
     padding: 1% 1%;
     background: none;
+    word-wrap: break-word;
 }
 
 .content-table tbody tr {
@@ -88,6 +95,7 @@
     outline: 2px red solid;
 }
 */
+/* ボタンデザイン */
 .button {
     border-radius: 5px 5px 5px 5px;
     display: inline-block;
